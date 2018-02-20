@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="boxTexture" src="https://i.vimeocdn.com/portrait/7236848_300x300">
+        <img id="skyTexture" src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Helvellyn_Striding_Edge_360_Panorama%2C_Lake_District_-_June_09.jpg">
+      </a-assets>
+      <!-- <a-entity id="box" src="https://i.imgur.com/mYmmbrp.jpg" geometry="primitive: box" rotation="0 45 45" scale="2 2 2" position="0 2 -5"></a-entity> -->
+      <a-box src="#boxTexture" rotation="0 45 45" scale="2 2 2" position="0 2 -5">
+        <a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000" repeat="indefinite"></a-animation>
+        <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+        <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
+        <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+      </a-box>
+      <a-sky src="#skyTexture"></a-sky>
+      <a-light type="ambient" color="#445451"></a-light>
+      <a-light type="point" intensity="2" position="2 8 4"></a-light>
+      <a-sound src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay="true" position="-3 1 -4"></a-sound>
+      <a-text value="Hallo dit is geweldige text" color="#fff" position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>
+
+      <a-camera>
+        <a-cursor>
+        </a-cursor>
+      </a-camera>
+
+    </a-scene>
+  </body>
+</html>
