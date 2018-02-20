@@ -6,22 +6,26 @@ AFRAME.registerComponent('set-image', {
     dur: {type: 'number', default: 300}
   },
 
-  init: function() {
+  init: function () {
     var data = this.data;
     var el = this.el;
 
     this.setupFadeAnimation();
 
-    el.addEventListener(data.on, function() {
-      // fade out image
+    el.addEventListener(data.on, function () {
+      // Fade out image.
       data.target.emit('set-image-fade');
-      // wait for fade to complete
-      setTimeout(function() {
+      // Wait for fade to complete.
+      setTimeout(function () {
+        // Set image.
         data.target.setAttribute('material', 'src', data.src);
       }, data.dur);
-    })
+    });
   },
 
+  /**
+   * Setup fade-in + fade-out.
+   */
   setupFadeAnimation: function () {
     var data = this.data;
     var targetEl = this.data.target;
@@ -40,6 +44,4 @@ AFRAME.registerComponent('set-image', {
       to: '#000'
     });
   }
-})
-
-console.log('stuff');
+});
